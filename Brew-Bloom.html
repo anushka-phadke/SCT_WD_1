@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BREW-BLOOM</title>
+  <style>
+    /* GENERAL STYLES */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F1E9D2;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #C19A6B;
+      border-bottom: 2px solid #FFF8E7;
+	  position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+	
+	/* Navbar color change on scroll */
+    header.scrolled {
+      background-color: #8B5E3C;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+	
+    .logo {
+      height: 50px;
+      margin-right: 10px;
+    }
+    .site-title {
+      font-family: 'Bradley Hand ITC', cursive;
+	  font-weight: bold;
+      font-size: 32px;
+      color: #FFFFFF;
+      margin-right: auto;
+    }
+    .navbar {
+      display: flex;
+    }
+    .nav-btn {
+      margin-left: 5px;
+      padding: 8px 12px;
+      background-color: #F1E9D2;
+      color: brown;
+      border: none;
+      cursor: pointer;
+	  border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+	
+	/* Hover effect */
+    .nav-btn:hover {
+      background-color: #C19A6B;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Highlight active section button */
+    .nav-btn.active {
+      background-color: brown;
+      color: #fff;
+    }
+
+    /* SECTION DISPLAY */
+    .page {
+      display: none;
+      padding: 20px;
+    }
+    .page.active {
+      display: block;
+    }
+
+    /* QUERY BOX */
+    .query-box {
+      margin-top: 30px;
+    }
+    .query-box input {
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+      margin-right: 10px;
+    }
+    .query-box button {
+      padding: 8px 16px;
+      background-color: #c19a6b;
+      color: white;
+      border: none;
+	  cursor: pointer;
+    }
+
+    /* FOOTER FORM */
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+    }
+    form input,
+    form textarea,
+    form select {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    
+	</style>
+	</head>
+    <body>
+  
+    <header>
+      <img src="images/logo.jpg" alt="Brew-Bloom Logo" class="logo">
+      <span class="site-title">Brew-Bloom</span>
+      <nav class="navbar">
+        <button class="nav-btn" onclick="showSection('home')">Home</button>
+        <button class="nav-btn" onclick="showSection('about')">About Us</button>
+        <button class="nav-btn" onclick="showSection('menu')">Menu</button>
+        <button class="nav-btn" onclick="showSection('gallery')">Gallery</button>
+        <button class="nav-btn" onclick="showSection('reservation')">Table Reservation</button>
+      </nav>
+    </header>
+
+    <section id="home" class="page active">
+	<h1>Welcome to Brew-Bloom - "Savor the moment,and let joy invent!" </h1>
+	<div style="display: flex; align-items: center; gap: 20px; background-color: white; padding: 20px; border-radius: 10px; 
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 1000px; margin: 40px auto;">
+	<img src="images/bg.jpg" alt="Watermark" style="
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	opacity: 0.1;
+	pointer-events: none;
+	z-index: 0;">
+     
+      <p>
+	 At BrewBloom, we believe that every cup tells a story. Whether you're seeking the perfect morning pick-me-up or an afternoon indulgence,<br>
+	 we craft beverages that awaken your senses and bring moments of joy to your day. From carefully sourced coffee beans to exquisite loose-leaf teas, 
+	 every brew is made with love, passion, and a deep respect for the craft.<br>
+	 <br><u>Our Story – A Journey from Bean to Bloom</u> <br>
+	BrewBloom was born from a simple idea: to create a space where the art of brewing meets the science of flavor. Our founders, a passionate team of coffee
+	and tea enthusiasts, wanted to provide more than just a drink – we wanted to deliver an experience. We’ve traveled the world to find the finest ingredients,
+	working with farmers and artisans who share our commitment to sustainability and quality. From the first bloom of the plant to the final cup in your hands,<br>
+	<br>BrewBloom offers a journey like no other.
+      </p>
+	</div>
+	<div style="display: flex; align-items: center; gap: 20px; background-color: white; padding: 20px; border-radius: 10px; 
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 1000px; margin: 40px auto;">
+		<img src="images/logo.jpg" alt="Brew-Bloom Logo" style="width: 200px; height: auto; border-radius: 8px;">
+
+	 <p>
+        <u>The Story Behind the Logo</u><br>
+	At Brew Bloon Cafe, every cup tells a story — one that begins with the seed of an idea and blossoms into something beautiful.<br> 
+	<br>Our logo reflects this journey in the most organic and artistic way.<br>
+
+	☕ <b>The Coffee Bean</b><br>
+	At the heart of the logo is a stylized coffee bean, the symbol of energy, warmth, and the soul of our café. 
+	It represents our passion for brewing quality coffee and honoring the origins of every bean that fills your cup.<br>
+
+	<br>🌸 <b>The Blooming Flower</b><br>
+	Nestled next to the bean is a blooming flower, symbolizing growth, creativity, and nature's beauty. Just as a flower blooms with care and time, 
+	so does the experience at our cafe — from the perfect roast to the smile on your face. The flower also reflects the “Bloon” in our name — a creative
+	twist on “bloom” — representing how our space encourages ideas to blossom and conversations to flourish.<br>
+
+	<br>🍃<b> The Leaf</b><br>
+	Supporting it all is a delicate leaf, symbolizing sustainability and our commitment to sourcing responsibly, creating a cozy environment that’s kind 
+	to both people and the planet.<br>
+
+	Together, this logo isn’t just a visual — it’s a vibe. A harmonious blend of nature and coffee, simplicity and depth, just like the experience we hope
+	to give everyone who walks through our doors.
+      </p>
+	  </div>
+      <div class="query-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 60px;">
+        <h3>Ask a Query</h3>
+        <input type="text" placeholder="Ask your question...">
+        <button>Submit</button>
+      </div>
+    </section>
+
+    <section id="about" class="page">
+      <h2>About Us</h2>
+	  <div style="display: flex; align-items: center; gap: 20px; background-color: white; padding: 20px; border-radius: 10px; 
+	  box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 1000px; margin: 40px auto;">
+	<img src="images/bg.jpg" alt="Watermark" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+">
+
+	  <p>
+        <u>☕ About Brew Bloon Cafe 🌸</u><br>
+	Welcome to Brew Bloon Cafe — where every cup is brewed with purpose and every moment is made to bloom.<br> Nestled in the heart of the community,
+	Brew Bloon is more than just a coffee shop.<br> We're a cozy corner for dreamers, thinkers, creators, and coffee lovers.<br> Our name blends two simple 
+	ideas: “Brew” for our handcrafted coffee, and “Bloon” — a playful nod to bloom, symbolizing growth, beauty, and connection.<br>
+
+
+
+		</div> <br>
+		<div style="display: flex; align-items: center; gap: 20px; background-color: white; padding: 20px; border-radius: 10px; 
+		box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 1000px; margin: 40px auto;">	
+        	
+		💡<p> <u>Our Philosophy</u><br>
+	We believe in slow sips, meaningful moments, and spaces that inspire. Our logo says it all — a coffee bean wrapped in a blossoming flower,
+	rooted with a delicate leaf. It represents everything we stand for:<br>
+
+	<br><b>Craft:</b> Sourcing high-quality beans and brewing with love.<br>
+
+	<br><b>Growth:</b> Supporting local, cultivating creativity, and blooming together.<br>
+
+	<br><b>Nature:</b> A commitment to eco-conscious choices and a welcoming, grounded space.</br>
+
+	Whether you're here for your morning ritual, an afternoon escape, or an evening catch-up, Brew Bloon is your home away from home.
+      </p>
+	  </div>
+	  <div style="display: flex; align-items: center; gap: 20px; background-color: white; padding: 20px; border-radius: 10px;
+	  box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 1000px; margin: 40px auto;">
+      <p>
+        <u>✨ What Makes Us Different?</u><br>
+	<br>~Thoughtful brews with beans ethically sourced and roasted to perfection.<br>
+
+	<br>~Bloom-worthy bites with locally inspired flavors and seasonal specials.<br>
+
+	<br>~Creative ambiance that sparks conversation, comfort, and community.<br>
+
+	<br>~Sustainability at heart — from compostable packaging to conscious practices.<br>
+
+	<br>🤎 Let’s Brew & Bloom Together<br>
+	At Brew Bloon, we’re not just serving coffee — we’re nurturing moments. So come in, take a deep breath, and let the aroma of good 
+	coffee and better company guide your day.<hr>
+      </p>
+	  </div>
+    </section>
+
+    <section id="menu" class="page">
+      <h2>Menu</h2>
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu / Catalogue</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .menu-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .menu-item:hover {
+            transform: scale(1.02);
+        }
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .item-content {
+            padding: 15px;
+        }
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #222;
+        }
+        .item-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .item-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #008060;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Our Menu</h1>
+	<img src="images/bg.jpg" alt="Watermark" style="
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	opacity: 0.1;
+	pointer-events: none;
+	z-index: 0;">
+    <div class="menu-container">
+        <div class="menu-item">
+            <img src="images/coffee.jpg" alt="Coffee">
+            <div class="item-content">
+                <div class="item-name">Coffee</div>
+                <div class="item-description">Indulge in a caffeinated chocolate dream with espresso, steamed milk, and our signature chocolate syrup,
+				topped with a layer of foam.Intense yet slightly mellowed. A lighter, longer cup with a bold character and clean finish.</div>
+                <div class="item-price">Rs.130</div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/tea.jpg" alt="Tea">
+            <div class="item-content">
+                <div class="item-name">Tea</div>
+                <div class="item-description">A fragrant beverage made from the dried or fresh leaves of the evergreen shrub Camellia sinensis. 
+				Your classic morning wake-up call.Comfort in every sip. </div>
+                <div class="item-price">Rs.30</div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="images/milkshake.jpg" alt="Milkshake">
+            <div class="item-content">
+                <div class="item-name">Milkshake</div>
+                <div class="item-description">Pure, creamy vanilla blended to perfection. Simple, timeless, and always a favorite. 
+				Decadent cocoa goodness in every sip. Like drinking dessert—with a straw.  Crushed cookies mixed into vanilla 
+				ice cream—every sip has a bite of cookie magic.
+				</div>
+                <div class="item-price">Rs.120</div>
+            </div>
+        </div>
+		<div class="menu-item">
+            <img src="images/pizza.jpg" alt="Pizza">
+            <div class="item-content">
+                <div class="item-name">Pizza</div>
+                <div class="item-description">Vibrant. Flavorful. Loaded. – A garden-fresh medley of bell peppers, zucchini, sweet corn,
+				jalapeños, black olives, and red onions on a perfectly crisp crust. Smothered in gooey mozzarella and finished with Italian 
+				herbs. A colorful slice of indulgence for veggie lovers.
+				</div>
+                <div class="item-price">Rs.250</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="images/pasta.png" alt="Pasta">
+            <div class="item-content">
+                <div class="item-name">Pasta</div>
+                <div class="item-description">Bold. Fiery. Addictive. – Penne pasta tossed in a spicy house-made tomato sauce, infused with
+				garlic, chili flakes, and a hint of smoked paprika. Finished with fresh herbs and a touch of parmesan. Brings the heat, but 
+				keeps you coming back for more.
+				</div>
+                <div class="item-price">Rs.140</div>
+            </div>
+        </div>
+		<div class="menu-item">
+            <img src="images/sandwich.jpg" alt="Sandwich">
+            <div class="item-content">
+                <div class="item-name">Sandwich</div>
+                <div class="item-description">Fresh. Crispy. Full of Flavor. – A hearty mix of crunchy cucumbers, ripe tomatoes, bell peppers,
+				and leafy greens, all nestled between toasted multigrain bread. A spread of creamy hummus and a touch of tangy mustard add a
+				perfect punch. Grilled to perfection, this is a sandwich that’s both wholesome and indulgent.
+				</div>
+                <div class="item-price">Rs.180</div>
+            </div>
+        </div>
+		<div class="menu-item">
+            <img src="images/burger.jpg" alt="Burger">
+            <div class="item-content">
+                <div class="item-name">Burger</div>
+                <div class="item-description">Juicy. Melty. Unbeatable. – A perfectly grilled beef patty topped with melted cheddar cheese, 
+				fresh lettuce, juicy tomato, and pickles, all tucked inside a soft, toasted brioche bun. Served with crispy fries on the side, 
+				this is the burger that never goes out of style.
+				</div>
+                <div class="item-price">Rs.90</div>
+            </div>
+        </div>
+		<div class="menu-item">
+            <img src="images/maggi.jpg" alt="Maggi">
+            <div class="item-content">
+                <div class="item-name">Maggi</div>
+                <div class="item-description">Spicy. Comforting. Nostalgic. – A plate of piping hot Maggi noodles cooked in a rich, spiced 
+				masala sauce, with a perfect balance of heat and flavor. Tossed with onions, tomatoes, and fresh coriander, this desi 
+				favorite is the ultimate comfort food. Served with a side of crispy papad, it’s the perfect fusion of tradition and taste.
+				</div>
+                <div class="item-price">Rs.80</div>
+            </div>
+        </div>
+		<div class="menu-item">
+            <img src="images/manchurian.jpg" alt="Manchurian">
+            <div class="item-content">
+                <div class="item-name">Manchurian</div>
+                <div class="item-description">Tangy. Spicy. Irresistible. – Bite-sized veggie balls, expertly fried to a crispy 
+				golden perfection, then tossed in a bold, flavorful sauce made with soy, garlic, ginger, and a hint of chili. A perfect
+				blend of sweet, savory, and spicy with a burst of tanginess. Served with a side of fried rice or noodles, this dish is a 
+				crowd-pleaser for any occasion.
+				</div>
+                <div class="item-price">Rs.145</div>
+            </div>
+        </div>
+		
+    </div>
+
+</body>
+</html>
+
+
+    </section>
+
+    <section id="gallery" class="page">
+      <h2>Gallery</h2>
+	<style>
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+
+  .gallery-item img:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+  </style>
+</head>
+<body>
+  
+  
+    <h2>Welcome to Our Café</h2>
+    <p>Welcome to our little slice of paradise. Our gallery features some of the best moments in our café – from delicious dishes to 
+	  cozy corners. Take a look and feel the vibe of our café.</p>
+ 
+	<section class="gallery">
+    
+    <div class="gallery-container">
+      
+      <div class="gallery-item">
+        <img src="images/gal2.jpg" >
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gal3.jpg" >
+      </div>
+     
+      <div class="gallery-item" >
+        <img src="images/gal4.png">
+      </div>
+      <div class="gallery-item" >
+        <img src="images/gal5.jpg">
+      </div>
+      
+    </div>
+  </section>
+    </section>
+	<div style="display: flex; align-items: center; gap: 20px; background-color: white; padding: 20px; border-radius: 10px; 
+	  box-shadow: 0 4px 10px rgba(0,0,0,0.1); max-width: 1000px; margin: 40px auto;">
+	<img src="images/bg.jpg" alt="Watermark" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+">
+
+
+    
+
+    <section id="reservation" class="page">
+      <h2>Reservation Table</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="number" placeholder="Phone Number" required>
+
+        <label for="address">Residential Address:</label>
+        <textarea id="address" name="address" rows="4" cols="50"></textarea>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select Gender</option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+          <option value="OTHERS">Others</option>
+        </select>
+
+        <button type="submit">Reserve</button>
+      </form>
+    </section>
+  </div>
+
+  <script>
+     // Function to show selected section
+    function showSection(id, button) {
+      document.querySelectorAll('.page').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      button.classList.add('active');
+    }
+
+    // Change navbar color on scroll
+    window.addEventListener("scroll", function() {
+      const header = document.querySelector("header");
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
+</body>
+</html>
